@@ -7,17 +7,7 @@
                 <img src="~assets/logo-vertical-white.png" style="height: 60px;">
             </q-toolbar-title>
 
-            <div class="menu" v-if="!this.$q.platform.is.mobile">
-              <span class="item-menu">
-                    <q-icon name="monetization_on" style="font-size: 24px;" /> Promoções
-                </span>
-                <span class="item-menu">
-                    <q-icon name="shopping_cart" style="font-size: 24px;" /> Carrinho
-                </span>
-                <span class="item-menu">
-                    <q-icon name="login" style="font-size: 24px;" /> Entrar
-                </span>
-            </div>
+            <Menu></Menu>
 
             <q-btn dense flat round icon="menu" @click="right = !right" v-if="this.$q.platform.is.mobile" />
         </q-toolbar>
@@ -35,11 +25,13 @@
 </template>
 
 <script>
-import {
-    Platform
-} from 'quasar'
+import { Platform } from 'quasar'
+import Menu from './../components/menus/Menu'
 export default {
     name: 'MainLayout',
+    components:{
+        Menu
+    },
     data() {
         return {
             right: false
@@ -47,11 +39,3 @@ export default {
     }
 }
 </script>
-<style>
-.menu{
-  font-size: 16px;
-}
-.menu .item-menu{
-    padding: 0 15px 0 0;
-}
-</style>
