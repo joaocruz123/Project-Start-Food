@@ -1,6 +1,8 @@
 <template>
-<q-page :class="{ 'q-mx-xl': !this.$q.platform.is.mobile }">
-    <Carousel></Carousel>
+<span>
+<Carousel></Carousel>
+<q-page :class="{ 'q-mx-md': !this.$q.platform.is.mobile }">
+    
     <hr class="q-mx-lg">
     <div class="row q-pa-sm justify-center text-center gutter-sm">
         <div class="col-xs-12 col-sm-12">
@@ -11,6 +13,7 @@
     </div>
     <ListStores></ListStores>
 </q-page>
+</span>
 </template>
 
 <script>
