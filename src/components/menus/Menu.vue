@@ -19,7 +19,13 @@ export default {
     name: 'Menu',
     components:{
         Login
+    },
+    data(){
+        return{
+            
+        }
     }
+
 }
 </script>
 <style>
@@ -27,11 +33,12 @@ export default {
   font-size: 16px;
 }
 .menu .item-menu{
-    padding: 12px;
+    padding: 14px;
     cursor: pointer;
 }
 .menu .item-menu:hover{
     background-color: #3b5b86;
     border-radius: 5px;
+    color: #c7c7c7;
 }
 </style>
