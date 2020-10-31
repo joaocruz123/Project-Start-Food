@@ -11,32 +11,41 @@
             <Login></Login>
         </span>
     </div>
+    <div class="menu" v-else>
+        <span class="item-menu">
+            <Login></Login>
+        </span>
+    </div>
 </div>
 </template>
+
 <script>
 import Login from './../../components/auth/Login'
 export default {
     name: 'Menu',
-    components:{
+    components: {
         Login
     },
-    data(){
-        return{
-            
+    data() {
+        return {
+
         }
     }
 
 }
 </script>
+
 <style>
-.menu{
-  font-size: 16px;
+.menu {
+    font-size: 16px;
 }
-.menu .item-menu{
+
+.menu .item-menu {
     padding: 14px;
     cursor: pointer;
 }
-.menu .item-menu:hover{
+
+.menu .item-menu:hover {
     background-color: #3b5b86;
     border-radius: 5px;
     color: #c7c7c7;

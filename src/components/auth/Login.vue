@@ -11,7 +11,7 @@
         </q-avatar>
         {{ profile.name }}
 
-        <q-menu fit transition-show="jump-down" transition-hide="jump-up">
+        <q-menu fit transition-show="jump-down" transition-hide="jump-up" v-if="!this.$q.platform.is.mobile">
             <q-list style="min-width: 280px;">
                 <span class="q-gutter-md justify-center text-center">
                     <p class="name-user">Olá, {{ profile.name }}</p>

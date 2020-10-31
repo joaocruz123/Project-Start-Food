@@ -1,18 +1,18 @@
 <template>
 <span>
-<Carousel></Carousel>
-<q-page :class="{ 'q-mx-md': !this.$q.platform.is.mobile }">
-    
-    <hr class="q-mx-lg">
-    <div class="row q-pa-sm justify-center text-center gutter-sm">
-        <div class="col-xs-12 col-sm-12">
-            <p class="text-weight-thin destaque">
-                <q-icon name="fastfood" color="secondary" style="font-size: 24px;" /> Restaurantes
-            </p>
+    <Carousel></Carousel>
+    <q-page :class="{ 'q-mx-md': !this.$q.platform.is.mobile }">
+        <div class="row q-pa-sm justify-center text-center gutter-sm">
+            <div class="col-xs-12 col-sm-12">
+                <p class="text-weight-thin destaque">
+                    <q-icon name="fastfood" color="secondary" style="font-size: 24px;" /> Restaurantes
+                </p>
+            </div>
         </div>
-    </div>
-    <ListStores></ListStores>
-</q-page>
+        <hr class="q-mx-lg">
+
+        <ListStores></ListStores>
+    </q-page>
 </span>
 </template>
 
@@ -32,13 +32,15 @@ export default {
     }
 }
 </script>
+
 <style>
-hr{
+hr {
     height: 1px;
-	border-width:0;
-    background: #e4e3e3 ;
+    border-width: 0;
+    background: #e4e3e3;
 }
-.destaque{
+
+.destaque {
     font-size: 28px;
 }
 </style>
