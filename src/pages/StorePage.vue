@@ -34,6 +34,7 @@
     </q-parallax>
     <q-page :class="{ 'q-mx-md': !this.$q.platform.is.mobile }">
         <Highlights></Highlights>
+        <ProductList></ProductList>
     </q-page>
     
 </span>
@@ -41,11 +42,14 @@
 
 <script>
 import Highlights from './../components/products/Highlights'
+import ProductList from './../components/products/ProductList'
 export default {
     name: 'StorePage',
     components: {
-        Highlights
+        Highlights,
+        ProductList
     },
+    
     data() {
         return {
             store: null,

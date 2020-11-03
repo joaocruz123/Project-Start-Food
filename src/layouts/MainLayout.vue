@@ -17,25 +17,27 @@
         <MenuMobile></MenuMobile>
     </q-drawer>
 
-    <q-page-container >
+    <q-page-container>
         <router-view />
     </q-page-container>
 
     <q-footer v-if="this.$q.platform.is.mobile">
         <FooterMenuMobile></FooterMenuMobile>
-      </q-footer>
+    </q-footer>
 
 </q-layout>
 </template>
 
 <script>
-import { Platform } from 'quasar'
+import {
+    Platform
+} from 'quasar'
 import Menu from './../components/menus/Menu'
 import FooterMenuMobile from './../components/menus/FooterMenuMobile'
 import MenuMobile from './../components/menus/MenuMobile'
 export default {
     name: 'MainLayout',
-    components:{
+    components: {
         Menu,
         FooterMenuMobile,
         MenuMobile
