@@ -127,6 +127,10 @@ export default {
                 });
         },
         logout(network) {
+             Loading.show({
+                spinner: QSpinnerPuff,
+                spinnerColor: 'primary',
+            })
             this.$hello(network, true)
                 .logout()
                 .then((res) => {
@@ -134,6 +138,7 @@ export default {
                     localStorage.profile = "";
                     this.profile.name = '';
                     this.profile.img = '';
+                     Loading.hide()
                 });
         },
         getProfile() {

@@ -10,7 +10,6 @@
             </div>
         </div>
         <hr class="q-mx-lg">
-
         <ListStores></ListStores>
     </q-page>
 </span>
