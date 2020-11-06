@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="row q-ma-lg">
-        <div class="col-xl-12 col-sm-4" v-for="highlight in highlights" :key="highlight.id">
+        <div class="col-xl-4 col-sm-4" v-for="highlight in highlights" :key="highlight.id">
             <q-card class="highlights-card" flat bordered>
                 <q-card-section horizontal>
                     <q-card-section class="q-pt-xs">

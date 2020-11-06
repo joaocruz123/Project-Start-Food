@@ -44,11 +44,7 @@
 </template>
 
 <script>
-import stores from 'src/store/modules/stores'
-import {
-    mapState,
-    mapActions
-} from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
     name: 'ListStores',
     data() {

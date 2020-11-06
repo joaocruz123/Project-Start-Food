@@ -5,7 +5,7 @@
             <q-icon name="monetization_on" style="font-size: 24px;" /> Promoções
         </span>
         <span class="item-menu">
-            <q-icon name="shopping_cart" style="font-size: 24px;" /> Carrinho
+            <Cart></Cart>
         </span>
         <span class="item-menu">
             <Login></Login>
@@ -21,10 +21,12 @@
 
 <script>
 import Login from './../../components/auth/Login'
+import Cart from './../../components/cart/Cart'
 export default {
     name: 'Menu',
     components: {
-        Login
+        Login,
+        Cart
     },
     data() {
         return {

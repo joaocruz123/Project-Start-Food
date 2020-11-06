@@ -8,7 +8,7 @@
             </div>
         </div>
         <div class="row q-ma-lg">
-            <div class="col-xl-12 col-sm-4 q-pa-sm" v-for="product in products" :key="product.id">
+            <div class="col-xl-4 col-sm-4 q-pa-sm" v-for="product in products" :key="product.id">
                 <q-card class="highlights-card" flat bordered @click="openProducts(product)">
                     <q-card-section horizontal>
                         <q-card-section class="q-pt-xs">
@@ -64,11 +64,15 @@
 
                 <q-card-actions align="right">
                     <span class="row button-actions q-mx-sm">
-                        <div class="actions"><q-icon name="remove" size="xs"/></div>
-                        <div class="actions">1</div>
-                        <div class="actions"><q-icon name="add" size="xs"/></div>
+                        <div class="actions">
+                            <q-icon name="remove" size="xs" @click="removeQtd()" />
+                        </div>
+                        <div class="actions">{{qtd}}</div>
+                        <div class="actions">
+                            <q-icon name="add" size="xs" @click="qtd++" />
+                        </div>
                     </span>
-                    <q-btn align="between" class="btn-fixed-width" color="primary" label="Adicionar ao carrinho" icon="add" />
+                    <q-btn align="between" class="btn-fixed-width" color="primary" label="Adicionar ao carrinho" icon="add" @click="addToCart(modal_product)" />
                 </q-card-actions>
             </q-card>
         </q-dialog>
@@ -77,6 +81,13 @@
 </template>
 
 <script>
+import {
+    Notify
+} from 'quasar'
+import {
+    mapState,
+    mapActions
+} from 'vuex'
 export default {
     name: "ProductList",
     components: {},
@@ -85,7 +96,8 @@ export default {
             products: null,
             detail_modal: false,
             maximizedToggle: false,
-            modal_product: null
+            modal_product: null,
+            qtd: 1
         }
     },
     created() {
@@ -94,24 +106,61 @@ export default {
         this.products = obj.products
     },
     methods: {
+        ...mapActions("cart", ["AddItemToCart"]),
         openProducts(product) {
             this.detail_modal = true
+            this.qtd = 1
             this.modal_product = product
+        },
+        removeQtd() {
+            if (this.qtd != 1) return this.qtd--
+        },
+        addToCart(product) {
+            let cart = new Array()
+
+            if (localStorage.hasOwnProperty("cart")) {
+                cart = JSON.parse(localStorage.getItem("cart"))
+            }
+            const item = {
+                "product_id": product.id,
+                "product_name": product.name,
+                "product_value": product.value,
+                "promocional_value": product.promotional_value,
+                "quantity": this.qtd
+            }
+
+            this.AddItemToCart(item)
+
+            cart.push(item)
+            localStorage.setItem("cart", JSON.stringify(cart))
+            this.detail_modal = false
+
+            Notify.create({
+                message: 'Item adicionado(a) ao carrinho!',
+                color: 'positive'
+            })
+
+            console.log(this.cart)
         }
+    },
+    computed: {
+        ...mapState("cart", ["cart"])
     }
 }
 </script>
 
 <style>
-.actions{
+.actions {
     padding: 0 8px;
     cursor: pointer;
 }
-.button-actions{
+
+.button-actions {
     border: 1px solid #34507b;
     padding: 7px;
     border-radius: 5px;
 }
+
 .destaque {
     font-size: 28px;
 }
