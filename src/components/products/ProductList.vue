@@ -88,6 +88,7 @@ import {
     mapState,
     mapActions
 } from 'vuex'
+import stores from 'src/store/modules/stores'
 export default {
     name: "ProductList",
     components: {},
@@ -106,7 +107,7 @@ export default {
         this.products = obj.products
     },
     methods: {
-        ...mapActions("cart", ["AddItemToCart"]),
+        ...mapActions("cart", ["addItemToCart", "addStore", "getSubtotal"]),
         openProducts(product) {
             this.detail_modal = true
             this.qtd = 1
@@ -114,8 +115,15 @@ export default {
         },
         removeQtd() {
             if (this.qtd != 1) return this.qtd--
+        }, 
+        saveStore() {
+            if (this.store === '') {
+                const store = JSON.parse(localStorage.store)
+                this.addStore(store)
+            }
         },
         addToCart(product) {
+            const subtotal = parseFloat(product.value) * parseFloat(this.qtd)
             let cart = new Array()
 
             if (localStorage.hasOwnProperty("cart")) {
@@ -124,12 +132,12 @@ export default {
             const item = {
                 "product_id": product.id,
                 "product_name": product.name,
-                "product_value": product.value,
+                "product_value": subtotal,
                 "promocional_value": product.promotional_value,
                 "quantity": this.qtd
             }
 
-            this.AddItemToCart(item)
+            this.addItemToCart(item)
 
             cart.push(item)
             localStorage.setItem("cart", JSON.stringify(cart))
@@ -140,11 +148,12 @@ export default {
                 color: 'positive'
             })
 
-            console.log(this.cart)
+            this.saveStore()
+            this.getSubtotal(item)
         }
     },
     computed: {
-        ...mapState("cart", ["cart"])
+        ...mapState("cart", ["cart", "store"])
     }
 }
 </script>
