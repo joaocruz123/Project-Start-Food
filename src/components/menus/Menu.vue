@@ -4,12 +4,8 @@
         <span class="item-menu">
             <q-icon name="monetization_on" style="font-size: 24px;" /> Promoções
         </span>
-        <span class="item-menu">
-            <Cart></Cart>
-        </span>
-        <span class="item-menu">
-            <Login></Login>
-        </span>
+        <Cart></Cart>
+        <Login></Login>
     </div>
     <div class="menu" v-else>
         <span class="item-menu">
