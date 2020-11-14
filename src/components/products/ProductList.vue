@@ -7,7 +7,7 @@
                 <hr>
             </div>
         </div>
-        <div class="row q-ma-lg">
+        <div class="row q-ma-lg" v-if="products && products.length > 0">
             <div class="col-xl-4 col-sm-4 q-pa-sm" v-for="product in products" :key="product.id">
                 <q-card class="highlights-card" flat bordered @click="openProducts(product)">
                     <q-card-section horizontal>
@@ -43,6 +43,14 @@
                 </q-card>
             </div>
         </div>
+        <div class="row q-ma-lg" v-else>
+            <div class="col-xl-12 col-sm-12 q-pa-sm">
+                <q-banner class="bg-blue-grey-2 text-center full-width">
+                    Sem produtos cadastrados nesse estabelecimento.
+                </q-banner>
+            </div>
+        </div>
+
         <q-dialog v-model="detail_modal" :maximized="maximizedToggle" v-if="modal_product !== null">
             <q-card style="width: 700px; max-width: 80vw;">
                 <q-card-section class="row items-center">
@@ -115,7 +123,7 @@ export default {
         },
         removeQtd() {
             if (this.qtd != 1) return this.qtd--
-        }, 
+        },
         saveStore() {
             if (this.store === '') {
                 const store = JSON.parse(localStorage.store)
