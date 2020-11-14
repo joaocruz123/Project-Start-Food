@@ -1,5 +1,5 @@
 <template>
-<span>
+<span class="item-menu">
     <span v-if="cart != ''">
         <q-badge color="secondary" text-color="white" :label="cart.length" />
     </span>
@@ -90,5 +90,15 @@ export default {
 .item-cart {
     font-size: 17px;
     color: rgb(102, 102, 102);
+}
+
+.item-menu {
+    padding: 14px;
+    cursor: pointer;
+}
+.item-menu:hover {
+    background-color: #3b5b86;
+    border-radius: 5px;
+    color: #c7c7c7;
 }
 </style>

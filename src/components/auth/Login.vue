@@ -1,11 +1,11 @@
 <template>
 <span>
     <!-- <q-btn label="Medium" color="primary" @click="medium = true" /> -->
-    <span @click="modalLogin = true" v-if="profile.name == ''">
+    <span class="item-menu" @click="modalLogin = true" v-if="profile.name == ''">
         <q-icon name="login" style="font-size: 24px" /> Entrar
     </span>
 
-    <span v-else>
+    <span class="item-menu" v-else>
         <q-avatar size="md">
             <img :src="profile.img" />
         </q-avatar>
@@ -168,5 +168,15 @@ export default {
 
 .profile-item:hover {
     color: #34507b;
+}
+.menu .item-menu {
+    padding: 14px;
+    cursor: pointer;
+}
+
+.menu .item-menu:hover {
+    background-color: #3b5b86;
+    border-radius: 5px;
+    color: #c7c7c7;
 }
 </style>
