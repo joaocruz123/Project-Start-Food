@@ -6,8 +6,8 @@
             <hr>
         </div>
     </div>
-    <div class="row q-ma-lg">
-        <div class="col-xl-12 col-sm-4" v-for="highlight in highlights" :key="highlight.id">
+    <div class="row q-ma-lg" v-if="highlights && highlights.length > 0">
+        <div class="col-xl-4 col-sm-4" v-for="highlight in highlights" :key="highlight.id">
             <q-card class="highlights-card" flat bordered>
                 <q-card-section horizontal>
                     <q-card-section class="q-pt-xs">
@@ -42,6 +42,13 @@
             </q-card>
         </div>
     </div>
+    <div class="row q-ma-lg" v-else>
+            <div class="col-xl-12 col-sm-12 q-pa-sm">
+                <q-banner class="bg-blue-grey-2 text-center full-width">
+                    Sem destaques cadastrados nesse estabelecimento.
+                </q-banner>
+            </div>
+        </div>
 </span>
 </template>
 

@@ -93,10 +93,12 @@ module.exports = function (/* ctx */) {
 
       // Quasar plugins
       plugins: [
-        'Loading'
+        'Loading',
+        'Notify'
       ],
       config: {
-        loading: { /* look at QUASARCONFOPTIONS from the API card (bottom of page) */ }
+        loading: { /* look at QUASARCONFOPTIONS from the API card (bottom of page) */ },
+        notify: { /* look at QUASARCONFOPTIONS from the API card (bottom of page) */ }
       }
     },
 
