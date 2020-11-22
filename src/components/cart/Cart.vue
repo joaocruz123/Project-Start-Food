@@ -8,7 +8,7 @@
         <div v-if="cart == ''">
             <span class="row q-pa-lg justify-center items-center text-center gutter-sm" style="min-width: 500px; height: 300px;">
                 <div class="col-xl-12 col-sm-12">
-                    <img src="~assets/shopping-cart.png" width="70px" /><br>
+                    <img src="~assets/shopping-cartv2.png" width="70px" /><br>
                     <span class="text-h5">Carrinho Vazio!</span>
                 </div>
             </span>
@@ -24,11 +24,17 @@
             </span>
             <q-separator />
             <span class="row q-px-lg q-pt-md" v-for="product in cart" :key="product.id">
-                <div class="col-xl-9 col-sm-9">
+                <div class="col-xl-7 col-sm-7">
                     <p class="item-cart">{{product.quantity}}x {{product.product_name}}</p>
                 </div>
                 <div class="col-xl-3 col-sm-3">
                     <p class="value-cart">R$ {{product.product_value}}</p>
+                </div>
+                <div class="col-xl-1 col-sm-1 gutter-lg">
+                    <q-icon name="delete" class="text-primary" style="font-size: 1.5em"/>
+                </div>
+                <div class="col-xl-1 col-sm-1">
+                    <q-icon name="create" class="text-primary" style="font-size: 1.5em"/>
                 </div>
             </span>
             <q-separator />
