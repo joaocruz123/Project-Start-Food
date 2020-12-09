@@ -65,7 +65,30 @@ export default function () {
         delivery_value: "4.99",
         description: "Uma empresa de alimentação baseada em pizzas. Atualmente, é a maior rede de entregas de pizzas do mundo, com 13.000 lojas em 83 países.",
         logo: 'https://media-cdn.tripadvisor.com/media/photo-s/09/5c/90/5f/domino-s-pizza-secunda.jpg',
-        thumbnail: "https://mercadoeconsumo.com.br/wp-content/uploads/2019/11/Dominos-Pizza-recebe-pedidos-via-Whatsapp-com-assistente-virtual.jpg"
+        thumbnail: "https://mercadoeconsumo.com.br/wp-content/uploads/2019/11/Dominos-Pizza-recebe-pedidos-via-Whatsapp-com-assistente-virtual.jpg",
+        highlights: [
+          {
+            id: 1,
+            type: "Pizza",
+            name: "PIZZA PEPPERONI - MÉDIA",
+            description: "Mussarela, pepperoni e orégano",
+            img: "https://static-images.ifood.com.br/image/upload/t_high/pratos/075a9189-e830-41fd-a608-16aa105f7dfb/202012071317_EtTd_f.png",
+            value: "35.85",
+            promotional_value: "",
+            options_type: 'checkbox',
+            options: [
+              {
+                name:"Escolha a massa da pizza!",
+                options_required: true,
+                itens: [
+                  'Fina',
+                  'Tradicional'
+                ]
+              }
+            ]
+          }
+        ],
+        products: []
       },
       {
         id: 3,
