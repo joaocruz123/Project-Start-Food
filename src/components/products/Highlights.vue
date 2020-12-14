@@ -103,7 +103,6 @@ export default {
     },
     created() {
         const obj = JSON.parse(localStorage.store)
-        console.log(obj)
         this.highlights = obj.highlights
     },
     methods: {
@@ -168,7 +167,7 @@ export default {
 s {
     color: rgb(139, 139, 139);
 }
-
+ 
 hr {
     height: 1px;
     border-width: 0;
