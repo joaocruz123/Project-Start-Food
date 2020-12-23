@@ -69,6 +69,24 @@
 
             <q-separator />
 
+            <!-- Grupo de Detalhes -->
+
+            <div class="row q-pa-md q-mx-xl" v-for="option in modal_options" :key="option.id">
+                <div class="col-xl-6 col-sm-6">
+                    <span class="group-title">{{ option.name }}</span>
+                </div>
+                <div class="col-xl-6 col-sm-6" v-if="option.options_required">
+                    <span class="float-right">
+                        <q-chip>Obrigatório</q-chip>
+                    </span>
+                </div>
+                <!-- <span v-if="">
+                    
+                </span> -->
+            </div>
+
+            <q-separator />
+
             <q-card-actions align="right">
                 <span class="row button-actions q-mx-sm">
                     <div class="actions">
@@ -98,6 +116,7 @@ export default {
             detail_modal: false,
             maximizedToggle: false,
             modal_product: null,
+            modal_options: null,
             qtd: 1
         }
     },
@@ -108,9 +127,11 @@ export default {
     methods: {
         ...mapActions("cart", ["addItemToCart", "addStore", "getSubtotal"]),
         openProducts(product) {
+            console.log(product)
             this.detail_modal = true
             this.qtd = 1
             this.modal_product = product
+            this.modal_options = product.options
         },
         removeQtd() {
             if (this.qtd != 1) return this.qtd--
@@ -176,5 +197,10 @@ hr {
 
 .destaque {
     font-size: 28px;
+}
+.group-title{
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 </style>
