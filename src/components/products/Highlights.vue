@@ -83,6 +83,14 @@
                 <!-- <span v-if="">
                     
                 </span> -->
+                <div class="q-pa-md">
+                    <q-option-group
+                    :options="option.itens"
+                    label="Notifications"
+                    type="checkbox"
+                    v-model="selected_options"
+                    />
+                </div>
             </div>
 
             <q-separator />
@@ -117,6 +125,7 @@ export default {
             maximizedToggle: false,
             modal_product: null,
             modal_options: null,
+            selected_options: [],
             qtd: 1
         }
     },
@@ -127,7 +136,7 @@ export default {
     methods: {
         ...mapActions("cart", ["addItemToCart", "addStore", "getSubtotal"]),
         openProducts(product) {
-            console.log(product)
+            console.log(product.options)
             this.detail_modal = true
             this.qtd = 1
             this.modal_product = product

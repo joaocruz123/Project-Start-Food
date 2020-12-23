@@ -81,8 +81,8 @@ export default function () {
                 name:"Escolha a massa da pizza!",
                 options_required: true,
                 itens: [
-                  'Fina',
-                  'Tradicional'
+                  { label: 'Fina', value: 'fina' },
+                  { label: 'Tradicional', value: 'tradicional' }
                 ]
               }
             ]
