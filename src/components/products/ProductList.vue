@@ -89,13 +89,8 @@
 </template>
 
 <script>
-import {
-    Notify
-} from 'quasar'
-import {
-    mapState,
-    mapActions
-} from 'vuex'
+import { Notify } from 'quasar'
+import { mapState,mapActions } from 'vuex'
 import stores from 'src/store/modules/stores'
 export default {
     name: "ProductList",
